@@ -17,7 +17,7 @@ const AuthNavigation = () => {
 
     clearIsAuthenticated();
 
-    router.push("/app/(auth routes)/sign-in");
+    router.push("/sign-in");
   };
 
   return isAuthenticated ? (

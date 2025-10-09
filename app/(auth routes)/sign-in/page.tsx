@@ -19,7 +19,7 @@ const SignIn = () => {
       if (res) {
         setUser(res);
 
-        router.push("/app/(public routes)/profile");
+        router.push("/profile");
       } else {
         setError("Invalid email or password");
       }
