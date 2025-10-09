@@ -1,12 +1,9 @@
 import css from "./Header.module.css";
 import Link from "next/link";
-import { getCategories } from "@/lib/api";
 import CategoriesMenu from "../CategoriesMenu/CategoriesMenu";
 import AuthNavigation from "../AuthNavigation/AuthNavigation";
 
 const Header = async () => {
-  const categories = await getCategories();
-
   return (
     <header className={css.header}>
       <Link href="/" aria-label="Home">
@@ -18,7 +15,7 @@ const Header = async () => {
             <Link href="/">Home</Link>
           </li>
           <li>
-            <CategoriesMenu categories={categories} />
+            <CategoriesMenu />
           </li>
           <li>
             <Link href="/profile">Profile</Link>

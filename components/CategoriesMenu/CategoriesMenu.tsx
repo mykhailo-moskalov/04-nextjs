@@ -1,16 +1,18 @@
 "use client";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Category } from "@/lib/api";
+import { Category, getCategories } from "@/lib/api";
 import css from "./CategoriesMenu.module.css";
 
-type Props = {
-  categories: Category[];
-};
-
-const CategoriesMenu = ({ categories }: Props) => {
+const CategoriesMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    getCategories().then((data) => setCategories(data));
+  }, []);
 
   return (
     <div className={css.menuContainer}>
