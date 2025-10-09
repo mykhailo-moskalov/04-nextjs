@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -29,20 +30,22 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.variable}>
         <TanStackProvider>
-          <Header />
-          <main>
-            {children}
-            {modal}
-          </main>
-          <footer
-            style={{
-              backgroundColor: "grey",
-            }}
-          >
-            <p>
-              Created <time dateTime={date.toLocaleString()}>{date}</time>
-            </p>
-          </footer>
+          <AuthProvider>
+            <Header />
+            <main>
+              {children}
+              {modal}
+            </main>
+            <footer
+              style={{
+                backgroundColor: "grey",
+              }}
+            >
+              <p>
+                Created <time dateTime={date.toLocaleString()}>{date}</time>
+              </p>
+            </footer>
+          </AuthProvider>
         </TanStackProvider>
       </body>
     </html>

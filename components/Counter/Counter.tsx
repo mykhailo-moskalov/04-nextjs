@@ -1,6 +1,6 @@
 "use client";
 
-import { useStore } from "@/stores/counterStore";
+import { useStore } from "@/lib/stores/counterStore";
 
 export const Counter = () => {
   const count = useStore((state) => state.count);
