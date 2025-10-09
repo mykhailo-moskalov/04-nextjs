@@ -1,7 +1,7 @@
 "use client";
 
 import { ApiError } from "@/app/api/api";
-import { login, LoginRequest } from "@/lib/api";
+import { login, LoginRequest } from "@/lib/api/clientApi";
 import { useAuthStore } from "@/lib/stores/authStore";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

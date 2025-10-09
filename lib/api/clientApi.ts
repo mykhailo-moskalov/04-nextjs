@@ -1,4 +1,4 @@
-import axios from "axios";
+import { nextServer } from "./api";
 
 export type Note = {
   id: string;
@@ -49,15 +49,9 @@ export type LoginRequest = {
   password: string;
 };
 
-type CheckSessionRequest = {
+export type CheckSessionRequest = {
   success: boolean;
 };
-
-const nextServer = axios.create({
-  baseURL: "http://localhost:3000/api",
-  withCredentials: true,
-});
-
 export const getNotes = async (categoryId?: string) => {
   const res = await nextServer.get<NoteListResponse>("/notes", {
     params: { categoryId },
@@ -71,7 +65,7 @@ export const getSingleNote = async (id: string) => {
 };
 
 export const getCategories = async () => {
-  const res = await nextServer<Category[]>("/categories");
+  const res = await nextServer.get<Category[]>("/categories");
   return res.data;
 };
 
